@@ -1,0 +1,68 @@
+﻿@page
+@model AshtonCourtExercise.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].ModelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].ManufacturerCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].MilesDriven)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Car) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufacturerCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MilesDriven)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
